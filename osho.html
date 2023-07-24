@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Osho Library Jaipur - Religious Book Store in Bani Park</title>
+    
+    <!--CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        body{
+            text-size-adjust:100%;
+            overflow-x: hidden;
+        }
+        .navbar-brand{
+            font-family: "Comfortaa",sans-serif;
+            color:#48487f;
+            font-size-adjust: auto;
+            font-size: 25px;
+            display: inline-block;
+        }
+        .navbar{
+            background-color: white;
+            box-shadow: 0px 2px 2px #d4d4d4;
+            z-index:5;
+            padding: 0.5% 5%;
+            
+        }
+        .nav-link,.nav-item,.active{
+            font-family: "Ledger",serif;
+            font-size: 20px;
+            display: inline-block;
+            padding: 0px 10px;
+            color:#48487f !important;
+            border:none;
+        }
+        .btn-light:hover{
+            background-color: white;
+            border: none;
+        }
+        .offcanvas{
+            z-index:2;
+            border: none;
+            box-shadow: 2px 0px 2px #d4d4d4;
+        }
+        #close{
+            display:none;
+            font-size: 17px;
+            color: black;
+        }
+        .offcanvas-body div ul li{
+            margin:5% 30%;
+        }
+        .ilink{
+            font-size: 22px;
+        }
+        h1{
+            color:#48487f;
+            font-size: 56px;
+            font-stretch: expanded;
+        }
+        .content,th,td{
+            font-family: "Ledger",serif;
+            font-size: 1.15em;
+            line-height: 1.5em;
+        }
+        .btn-primary{
+            background-color: #48487f !important;
+            border-radius: 0;
+        }
+        .quote:hover{
+            background-color: #696969 !important;
+            border-color: #696969;
+        }
+        .quote{
+            margin:3% 0%;
+        }
+        hr{
+            color: black !important;
+            outline-color: black;
+            opacity: 1;
+        }
+        h2{
+            font-family: "Comfortaa",sans-serif;
+            font-size: 16px;
+            margin-bottom: 2%;
+            font-weight: bold;
+        }
+        .update{
+            display: inline-block;
+            margin-top: 2%;
+            margin-left:0%;
+            width: 22rem;
+            border-radius:0;
+            border: none;
+
+        }
+        h3{
+            font-family: "Ledger",serif;
+            font-size:1.3em;
+        }
+        .posts{
+            line-height: 1.5em;
+            color:#48487f;
+            text-decoration: none;
+            font-family: "Ledger",serif;
+            text-size-adjust:100%;
+            font-size:1.15em;
+        }
+        a{
+            cursor: pointer;
+        }
+        img{
+          overflow: clip;
+            display: inline-block;
+        }
+        th{
+            font-weight: normal;
+            width:15%;
+        }
+        th,td{
+           padding: 0.1rem !important; 
+        }
+        footer,.footerlink{
+            color: #b5b5b5;
+            font-size:12px;
+            font-family:"Ledger",serif;
+            border-top: 2px;
+            text-decoration: none;
+        }
+        .logoimg{
+            background-image: url(images/logo.png);
+            background-position: 0 0;
+            background-repeat: no-repeat;
+            background-size: contain;
+            color: transparent;
+            display: inline-block;
+            height: 30px;
+            width: 60px;
+        }
+        .form-control{
+            border-top:0px;
+            border-right:0px;
+            border-left:0px;
+            color:rgba(0,0,0,.38);
+            border-radius: 0;
+            font-family: "Ledger",serif;
+            font-size:14px;
+        }
+        .modal-header{
+            border-bottom: none;
+        }
+        .modal-footer{
+            border-top:none;
+            color:rgba(0,0,0,.38);
+        }
+        .submit{
+            border-radius: none !important;
+        }
+        #limit{
+            float: right;
+            font-size: 12px;
+            color:rgba(0,0,0,.38);
+        }
+        #limit2{
+            color:rgba(0,0,0,.54);
+            font-size: 12px;
+        }
+        .modal-body{
+            padding: 5%;
+        }
+        .form-label{
+            color:rgba(0,0,0,.54);
+        }
+        .footerbutton{
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+  </head>
+  <body onresize="bottomNavbarFunction()" onload="bottomNavbarFunction()">
+    <h1></h1>
+    
+    <!--Header-->
+    <header>
+        <nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary p-0">
+  <div class="container-fluid navbar">
+   <button class="btn btn-white active" id="toggle" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop" aria-expanded="true" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon" id="show" onclick="changeFunction()"></span>
+            <span class="btn-close" id="close" onclick="returnFunction()"></span>
+        </button>
+      <a class="navbar-brand me-auto" href="osho.html">&emsp;Osho Library Jaipur</a>
+      <div class="collapse navbar-collapse navbar-nav">
+      <ul class="navbar-nav" style="display: inline-block;float: right;position: fixed;right: 5%;">
+        <li class="nav-item">
+                 <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+          <a class="nav-link active">
+           <i class="material-icons" style="font-size:17px;color:#48487f;">receipt</i> &nbsp;
+            Get Quote
+                     </a></button>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="tel:+91-86191-23992" target="_blank">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+            </svg>
+           &nbsp;Call Now
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active"  href="https://www.google.com/maps/dir//Osho+Library+Jaipur/data=!4m8!4m7!1m0!1m5!1m1!1s0x396db3cd85026fcd:0xba05714c67073534!2m2!1d75.77991949999999!2d26.9263694" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sign-turn-right-fill" viewBox="0 0 16 16">
+              <path d="M9.05.435c-.58-.58-1.52-.58-2.1 0L.436 6.95c-.58.58-.58 1.519 0 2.098l6.516 6.516c.58.58 1.519.58 2.098 0l6.516-6.516c.58-.58.58-1.519 0-2.098L9.05.435ZM9 8.466V7H7.5A1.5 1.5 0 0 0 6 8.5V11H5V8.5A2.5 2.5 0 0 1 7.5 6H9V4.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L9.41 8.658A.25.25 0 0 1 9 8.466Z"/>
+            </svg>
+            &nbsp;Get Directions
+          </a>
+        </li>
+      </ul>
+      </div>
+    </div>
+</nav>
+       <!--Offcanvas-->
+        <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+            <div class="offcanvas-header">
+                <h5>Links</h5>
+            </div>
+            <div class="offcanvas-body">
+                <div class="me-auto">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active ilink" href="#update">Updates</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active ilink" href="#gallery">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active ilink" href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--fixed bottom navbar-->
+        <nav class="navbar collapse fixed-bottom bg-body-tertiary p-2 " id="navbarSupportedContent" style="box-shadow:  2px 2px 3px 5px #d4d4d4;background-color: white !important;">
+          <div class="container-fluid" style="background-color: white;">
+            <ul class="navbar-nav" style="display: inline-block;width: 100%;text-align: center;">
+        <li class="nav-item" style="float: left;">
+                          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+          <a class="nav-link active"  style="font-size-adjust: auto;font-size: 14px;">
+           <i class="material-icons m-2" style="font-size:17px;color:#48487f;">receipt</i> <br>
+            Quote
+        </a></button>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="tel:+91-86191-23992" target="_blank" style="font-size-adjust: auto;font-size: 14px;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill m-2" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+            </svg>
+           <br>Call
+          </a>
+        </li>
+        <li class="nav-item" style="float:right; ">
+          <a class="nav-link active" target="_blank"  href="https://www.google.com/maps/dir//Osho+Library+Jaipur/data=!4m8!4m7!1m0!1m5!1m1!1s0x396db3cd85026fcd:0xba05714c67073534!2m2!1d75.77991949999999!2d26.9263694" style="font-size-adjust: auto;font-size: 14px;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-sign-turn-right-fill m-2" viewBox="0 0 16 16">
+              <path d="M9.05.435c-.58-.58-1.52-.58-2.1 0L.436 6.95c-.58.58-.58 1.519 0 2.098l6.516 6.516c.58.58 1.519.58 2.098 0l6.516-6.516c.58-.58.58-1.519 0-2.098L9.05.435ZM9 8.466V7H7.5A1.5 1.5 0 0 0 6 8.5V11H5V8.5A2.5 2.5 0 0 1 7.5 6H9V4.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L9.41 8.658A.25.25 0 0 1 9 8.466Z"/>
+            </svg>
+            <br>Directions
+          </a>
+        </li>
+      </ul>
+          </div>
+        </nav>
+    </header>
+    <main>
+     <!-- Quote Modal-->
+      <!-- Button trigger modal --
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+          Launch static backdrop modal
+        </button>
+        <!-- Modal -->
+        <div class="modal modal-dialog-scrollable centered" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" style="height:70% !important;">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Get quote</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                  <div class="form-floating mb-3">
+                   <input class="form-control" type="text" placeholder="Name" id="Name">
+                   <label for="Name">Name</label>
+                  </div>
+                   <div class="form-floating mb-3">
+                   <input class="form-control" type="text" placeholder="Phone number" id="Phonenumber">
+                   <label for="Phonenumber">Phone number</label>
+                  </div>
+                    <div class="form-floating mb-3">
+                      <input type="email" class="form-control" id="floatingInput" placeholder="Email*">
+                        <label for="floatingInput">Email*</label>
+                        <span id="limit2">*Valid email address required.</span>
+                    </div>
+                    <div class="mb-3">
+                        <label for="floatingTextarea2" class="form-label" style="color:rgba(0,0,0,.54);font-size:12px;">How can we help you?</label>
+                      <textarea class="form-control" placeholder="I was wondering about availability and rates. I need help with the following:" id="floatingTextarea2" style="height: 100px"></textarea>
+                      <span id="limit">0/1,000</span>
+                    </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary submit">SUBMIT</button>
+                <span>Make sure to avoid including any sensitive information you don't want to share with this business.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      <!--Header-->
+       <section>
+           <div class="container" style="padding:10%;">
+                <center>
+               <h1 class="m-3">Osho Library Jaipur</h1>
+               <p class="content" align="center">Religious Book Store in Bani Park<br>Open 24 hours</p>
+            
+               <button class="btn btn-primary content quote" type="button" style="padding: 2% 6%;" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">GET QUOTE</button>
+               </center>
+           </div>
+           <div style="margin-bottom: 10%;">
+               <figure style="display: block;margin-left:2%;">
+                   <center><img src="unnamed.jpg" class="img-fluid" alt="Header image for the site"></center>
+                </figure>
+           </div>
+       </section>
+       <a id="update">&nbsp;</a>
+       <!--Updates-->
+        <section style="margin-bottom: 8%;">
+           <div>
+               <center>
+               <hr width="4%" size="4px" color="black"/>
+               <h2>UPDATES</h2>
+               </center>
+           </div>
+           <div class="container" style="margin:2% 5% 2.5%;padding-left: 6%;">
+           <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
+            <article class="update col">
+                <figure>
+                    <a href="#">
+                    <img src="images/2020-10-02.jpg" class="img-fluid" style="height: 21rem;width: 20rem;border-radius: 0;"> 
+                    </a>                   
+                </figure>
+                <div style="margin-left: 1%; padding-top:2%;">
+                    <h3>Osho Library Jaipur</h3>
+                    <a class="posts" href="#">Oct 2, 2020 - Apr 30, 2021</a>
+                </div>
+            </article>
+            <article class="update col">
+                <figure>
+                   <a href="#">
+                    <img src="images/2019-09-29.jpg" class="img-fluid" style="height: 21rem;width: 20rem;border-radius: 0;">
+                    </a>
+                </figure>
+                <div style="margin-left: 1%;padding-top:2%;">
+                    <a class="posts" href="#">Posted on Sep 30, 2019</a>
+                </div>
+
+            </article>
+            <article class="update col">
+                <figure>
+                   <a href="#">
+                    <img src="images/2019-09-29%20(1).jpg" class="img-fluid" style="height: 21rem;width: 20rem;border-radius: 0;">
+                    </a>
+                </figure>
+                <div style="margin-left: 1%;padding-top:2%;">
+                    <a class="posts" href="#">Posted on Sep 30, 2019</a>
+                </div>
+            </article>
+            </div>
+            </div>
+        </section>
+               <a id="gallery">&nbsp;</a>
+        <!--GALLERY-->
+        <section style="margin-bottom: 8%;">
+            <div>
+               <center>
+               <hr width="4%" size="4px" color="black"/>
+               <h2>GALLERY</h2>
+               </center>
+           </div>
+           <div class="container" style="margin:2% 5% 2.5%;padding-left: 6%;">
+           <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
+            <article class="update col">
+                <figure>
+                    <img src="images/2021-01-11.jpg" class="img-fluid" style="height: 21rem;width: 20rem;border-radius: 0;">                  
+                </figure>
+            </article>
+            <article class="update col">
+                <figure style="">
+                    <img src="images/unnamed1.jpg" class="img-fluid" style="height: 21rem;width: 20rem;border-radius: 0;">
+                </figure>
+            </article>
+            <article class="update col">
+                <figure style="">
+                    <img src="images/unnamed2.jpg" class="img-fluid" style="height: 21rem;width: 20rem;border-radius: 0;">
+                </figure>
+            </article>
+            <article class="update col" style="margin-top: 0%;">
+                <figure style="margin-top: 0%;">
+                    <img src="images/unnamed3.jpg" class="img-fluid" style="height: 21rem;width: 20rem;border-radius: 0;">                    
+                </figure>
+            </article>
+            <article class="update col" style="margin-top: 0%;">
+                <figure style="margin-top: 0%;">
+                    <img src="images/unnamed4.jpg" class="img-fluid" style="height: 21rem;width: 20rem;border-radius: 0;">
+                </figure>
+            </article>
+            <article class="update col" style="margin-top: 0%;">
+                <figure style="margin-top: 0%;">
+                    <img src="images/unnamed5.jpg" class="img-fluid" style="height: 21rem;width: 20rem;border-radius: 0;">
+                </figure>
+            </article>
+            <article class="update col" style="margin-top: 0%;">
+                <figure style="margin-top: 0%;">
+                    <img src="images/unnamed6.jpg" class="img-fluid" style="height: 21rem;width: 20rem;border-radius: 0;">                    
+                </figure>
+            </article>
+            <article class="update col" style="margin-top: 0%;">
+                <figure style="margin-top:0%;">
+                    <img src="images/unnamed7.jpg" class="img-fluid" style="height: 21rem;width: 20rem;border-radius: 0;">
+                </figure>
+            </article>
+            <article class="update col" style="margin-top:0%;">
+                <figure style="margin-top:0%;">
+                    <img src="images/unnamed8.jpg" class="img-fluid" style="height: 21rem;width: 20rem;border-radius: 0;">
+                </figure>
+            </article>
+            </div>
+            </div>
+        </section>
+               <a id="contact">&nbsp;</a>
+        <!--Contact-->
+        <section>
+            <div>
+               <center>
+               <hr width="4%" size="4px" color="black"/>
+               <h2>CONTACT</h2>
+               </center>
+           </div>
+           <div class="container" style="padding:2% 3%;height: 600px;">
+               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3557.2788690709085!2d75.7798672!3d26.9263724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db3cd85026fcd%3A0xba05714c67073534!2sOsho%20Library%20Jaipur!5e0!3m2!1sen!2sin!4v1690179705223!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+           <div class="container" style="padding:2% 3%;">
+               <div class="row">
+                   <div class="col-md-4">
+                       <h3><b>Contact</b></h3>
+                        <button class="btn btn-primary content quote" type="button" style="padding: 5% 15%;">
+                           <a href="tel:+91-86191-23992" target="_blank" class="footerbutton">
+                            CALL NOW</a>
+                        </button>
+                       <p class="content mt-2">086191 23992<br>
+                       099826 05009</p>
+                   </div>
+                   <div class="col-md-4">
+                       <h3><b>Address</b></h3>
+                    <button class="btn btn-primary content quote" type="button" style="padding: 5% 15%;">
+                     <a  class="footerbutton" href="https://www.google.com/maps/dir//Osho+Library+Jaipur/data=!4m8!4m7!1m0!1m5!1m1!1s0x396db3cd85026fcd:0xba05714c67073534!2m2!1d75.77991949999999!2d26.9263694" target="_blank">
+                         GET DIRECTIONS</a>
+                      </button>
+                       <p class="content mt-2"  style="width:90%;">
+                       Shop - 1 Sutemil Colony Nala Powerhouse Near Railway Crossing
+                       <br>behind Ram Mandir
+                       <br>Bani Park
+                       <br>Jaipur, Rajasthan 302016
+                       <br>India
+                       </p>
+                   </div>
+                   <div class="col-md-4">
+                       <h3><b>Business Hours</b></h3>
+                       <div class="mt-2 pt-2">
+                           <table class="table table-sm table-default table-borderless">
+                               <tbody>
+                                   <tr>
+                                       <th>Mon:</th>
+                                       <td>Open 24 hours</td>
+                                   </tr>
+                                   <tr>
+                                       <th>Tue:</th>
+                                       <td>Open 24 hours</td>
+                                   </tr>
+                                   <tr>
+                                       <th>Wed:</th>
+                                       <td>Open 24 hours</td>
+                                   </tr>
+                                   <tr>
+                                       <th>Thu:</th>
+                                       <td>Open 24 hours</td>
+                                   </tr>
+                                   <tr>
+                                       <th>Fri:</th>
+                                       <td>Open 24 hours</td>
+                                   </tr>
+                                   <tr>
+                                       <th>Sat:</th>
+                                       <td>Open 24 hours</td>
+                                   </tr>
+                                   <tr>
+                                       <th>Sun:</th>
+                                       <td>Open 24 hours</td>
+                                   </tr>
+                               </tbody>
+                           </table>
+                       </div>
+                   </div>
+               </div>
+           </div>
+        </section>
+    </main>
+    
+    <!--Footer-->
+    <footer style="margin:1% 10% 5% 10%;text-align: center;">
+       <hr style="color: #b5b5b5 !important;">
+        <div style="float: left;display: inline-block;">
+            <a href="https://support.google.com/business/answer/7388122" target="_blank" class="footerlink">Report abuse</a>
+        </div>
+        <div style="display: inline-block;">
+            Header photo by
+            <a href="https://goo.gl/maps/V4LeKBxE7hPahSx69" target="_blank" tabindex="0" class="footerlink">Osho Library Jaipur</a>
+        </div>
+        <div style="float: right;display: inline-block;">
+            Powered by
+            <a href="https://www.google.com/business/how-it-works/website" class="footerlink logoimg">
+            Google
+            </a>
+        </div>
+    </footer>
+    
+    <!--Javascript-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script>
+        function changeFunction(){
+            document.getElementById("show").style.display="none";
+            document.getElementById("close").style.display="block";
+            //document.getElementsByClassName("offcanvas").style.visibility="visible";
+        }
+        function returnFunction(){
+            document.getElementById("close").style.display="none";
+            document.getElementById("show").style.display="block";
+            //document.getElementsByClassName("offcanvas").style.visibility="hidden";
+        }
+        function bottomNavbarFunction(){
+              let w = window.outerWidth;
+            if(w<=1007){
+                document.getElementById("navbarSupportedContent").style.display="block";
+            }
+            else{
+                document.getElementById("navbarSupportedContent").style.display="none";
+            }
+        }
+    </script>
+  </body>
+</html>
